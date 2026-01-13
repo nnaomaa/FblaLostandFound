@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>West-Mec Lost and Found</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <nav class="navbar">
+  <div class="nav-container">
+    <a href="#" class="logo" onclick="showPage('home')">
+      WEST-MEC <span class="lost">Lost and Found</span>
+    </a>
+
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+    <div class="links" id="navLinks">
+      <a href="#" onclick="showPage('home')">Home</a>
+      <a href="#" onclick="showPage('browse')">Browse Lost Items</a>
+      <a href="#" onclick="showPage('report')">Report Found Item</a>
+      <a href="#" onclick="showPage('claim')">Claim Item</a>
+      <a href="#" onclick="showPage('admin')">Admin</a>
+    </div>
+  </div>
+</nav>
+
+    <!-- <div id="notify"></div> -->
+
+    <main class="content-wrap">
+        
+        <div id="home" class="page-view hide">
+            <section class="hero-box">
+                <h1>Lost Something? <span class="orange-text">We Have It.</span></h1>
+                <p>The <b><span style="color:rgb(255, 106, 0);">OFFICIAL</b></span> Lost and Found website for West-MEC students to find what they lost.</p>
+                <div class="hero-actions">
+                    <button class="btn-1" onclick="showPage('browse')">Browse Lost Items</button>
+                    <button class="btn-2" onclick="showPage('report')">Report a Found Item</button>
+                </div>
+            </section>
+
+            <section class="how-it-works">
+                <h2 class="section-title">How It Works</h2>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-num">1</div>
+                        <h3>Search</h3>
+                        <p>Search through our lost items and find the ID for your item.</p>
+                        <p>🔎</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">2</div>
+                        <h3>Claim</h3>
+                        <p>Enter your email and the ID to our staff for review.</p>
+                        <p>🛄</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">3</div>
+                        <h3>Pickup</h3>
+                        <p>Check your inbox and we will email you when it's ready.</p>
+                        <p>🛻</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+<div class="form-page hide"id="browse" style="display:none">
+        <h2 class="section-title">Lost Items </h2>
+        <div class="search-bar-wrap">
+        <input type="text" id="searchBox" placeholder="Search by ID or Item Name" style="margin-bottom:20px; width:100%; max-width:400px; padding:8px; font-size:1rem;">
+        </div>
+        <div class="lost-items-grid">
+            <div class="lost-item">
+                <img src="" alt="Lost Item 001">
+                <div class="item-info">
+                    <h4>Jacket</h4>
+                    <p>Description</p>
+                    <span class="item-id">ID: 001</span>
+                    <button class="claim-btn" onclick="showPage('claim')">Claim</button>
+                </div>
+                </div>
+            <div class="lost-item">
+                <img src="" alt="Lost Item 002">
+                <div class="item-info">
+                    <h4>Hat</h4>
+                    <p>Description</p>
+                    <span class="item-id">ID: 002</span>
+                    <button class="claim-btn" onclick="showPage('claim')">Claim</button>
+                </div>
+            </div>
+            <div class="lost-item">
+                <img src="" alt="Lost Item 003">
+                <div class="item-info">
+                    <h4>Lunch Box</h4>
+                    <p>Description </p>
+                    <span class="item-id">ID: 003</span>
+                    <button class="claim-btn" onclick="showPage('claim')">Claim</button>
+                </div>
+            </div>
+            <div class="lost-item">
+                <img src="" alt="Lost Item 004">
+                <div class="item-info">
+                    <h4>AirPods</h4>
+                    <p>Description </p>
+                    <span class="item-id">ID: 004</span>
+                    <button class="claim-btn" onclick="showPage('claim')">Claim</button>
+            </div>
+            </div>
+            <div class="lost-item">
+                <img src="" alt="Lost Item 005">
+                <div class="item-info">
+                    <h4>IPhone</h4>
+                    <p>Description</p>
+                    <span class="item-id">ID: 005</span>
+                    <button class="claim-btn" onclick="showPage('claim')">Claim</button>
+                </div>
+            </div>
+            <div class="lost-item">
+                <img src="" alt="Lost Item 006">
+                <div class="item-info">
+                    <h4>Umbrella</h4>
+                    <p>Description</p>
+                    <span class="item-id">ID: 006</span>
+                    <button class="claim-btn" onclick="showPage('claim')">Claim</button>
+                   <label>Add Photo</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div id="report" class="form-page hide" style="display:none">
+            <h2 class="section-title">Report a Found Item</h2>
+            <div id="reportForm" >
+                <label>Item Name</label>
+                <input type="text" id="nameInput" placeholder="e.g. Hydroflask, AppleWatch, etc.." required>
+                <label>Description</label>
+                <textarea id="descInput" rows="4" placeholder="Mention any unique features about the item.." required></textarea>
+                <input type="file" id="imageInput" accept="image/*" onchange="showImage()">
+
+                <img id="preview" alt="Image Preview" style="display:none; margin-top:12px; max-width:100%; border-radius:8px;">
+                <button type="submit" onclick="reportItem()" class="btn-1 btn-width">Submit Found Report</button>
+                 
+            </div>
+        </div>
+
+        <div id="claim" class="form-page hide" style="display:none">
+            <h2 class="section-title">Claim Your Item</h2>
+            <form id="claimForm">
+                <label>Full Name</label>
+                <input type="text" placeholder="Enter first and last name" min=2 required>
+                <label>Email</label>
+                <input type="email" id="claimEmail" placeholder="Enter school email." required>
+                <label>Item ID Number</label>
+                <input type="text" id="idInput" placeholder="Enter item ID." required>
+                <!-- input type="text" id="itemDesc" placeholder="Describe item by unique features" -->
+                <button type="submit" class="btn-2 btn-width">Submit Claim Inquiry</button>
+            </form>
+        </div>
+
+        <div id="admin" class="form-page hide" style="display:none">
+  <h2 class="section-title">Admin Panel</h2>
+
+  <div class="admin-grid">
+    <!-- LOGIN -->
+    <div>
+      <h3>Staff Login</h3>
+      <label>Username</label>
+      <input type="text" id="adminUser">
+
+      <label>Password</label>
+      <input type="password" id="adminPass">
+      <label>Staff Access Code</label>
+<input type="password" id="adminCode" placeholder="Provided by West-MEC">
+
+
+      <button class="btn-2 btn-width" onclick="adminLogin()">Login</button>
+    </div>
+
+    <!-- SIGN UP -->
+    <div>
+      <h3>Create Admin Account</h3>
+      <label>Username</label>
+      <input type="text" id="newAdminUser">
+
+      <label>Password</label>
+      <input type="password" id="newAdminPass">
+
+      <button class="btn-1 btn-width" onclick="adminSignup()">Sign Up</button>
+    </div>
+  </div>
+</div>
+
+    <footer>
+    <div class="main-footer">
+        <div class="footer-top">
+            <div class="logo-section">
+                <h3 class="footer-logo">West-MEC</h3>
+                <p class="p-foot">Help find what was lost.</p>
+            </div>
+
+            <div class="quick-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#" onclick="showPage('report')">Submit a Found</a></li>
+                    <li><a href="#" onclick="showPage('claim')">Claim an Item</a></li>
+                </ul>
+            </div>
+
+            <div class="contact-info">
+                <h4>Contact</h4>
+                <p>Email: lostfound@west-mec.edu</p>
+                <p>Phone: (602) 123-4567</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 West-MEC Lost & Found | All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+
+    
+
+         
+    <script src="script.js"></script>
+</body>
+</html>
