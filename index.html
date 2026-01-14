@@ -135,7 +135,9 @@
                 <input type="text" id="nameInput" placeholder="e.g. Hydroflask, AppleWatch, etc.." required>
                 <label>Description</label>
                 <textarea id="descInput" rows="4" placeholder="Mention any unique features about the item.." required></textarea>
-                <input type="file" id="imageInput" accept="image/*" onchange="showImage()">
+                <label>Upload Picture *</label>
+<input type="file" id="imageInput" accept="image/*" required onchange="showImage()">
+
 
                 <img id="preview" alt="Image Preview" style="display:none; margin-top:12px; max-width:100%; border-radius:8px;">
                 <button type="submit" onclick="reportItem()" class="btn-1 btn-width">Submit Found Report</button>
@@ -152,6 +154,8 @@
                 <input type="email" id="claimEmail" placeholder="Enter school email." required>
                 <label>Item ID Number</label>
                 <input type="text" id="idInput" placeholder="Enter item ID." required>
+                <label>Additional Verification (optional)</label>
+<input type="text" id="extraVerify" placeholder="Serial number, sticker, engraving, etc.">
                 <!-- input type="text" id="itemDesc" placeholder="Describe item by unique features" -->
                 <button type="submit" class="btn-2 btn-width">Submit Claim Inquiry</button>
             </form>
@@ -169,9 +173,6 @@
 
       <label>Password</label>
       <input type="password" id="adminPass">
-      <label>Staff Access Code</label>
-<input type="password" id="adminCode" placeholder="Provided by West-MEC">
-
 
       <button class="btn-2 btn-width" onclick="adminLogin()">Login</button>
     </div>
@@ -190,6 +191,7 @@
   </div>
 </div>
 
+
     <footer>
     <div class="main-footer">
         <div class="footer-top">
@@ -202,7 +204,7 @@
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="#" onclick="showPage('home')">Home</a></li>
-                    <li><a href="#" onclick="showPage('report')">Submit a Found</a></li>
+                    <li><a href="#" onclick="showPage('report')">Submit Found</a></li>
                     <li><a href="#" onclick="showPage('claim')">Claim an Item</a></li>
                 </ul>
             </div>
@@ -210,7 +212,7 @@
             <div class="contact-info">
                 <h4>Contact</h4>
                 <p>Email: lostfound@west-mec.edu</p>
-                <p>Phone: (602) 123-4567</p>
+                <p>Phone: (555) 123-4567</p>
             </div>
         </div>
 

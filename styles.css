@@ -4,18 +4,15 @@
     box-sizing:border-box;
 }
 
-
-
 body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-main {
-    flex: 1 0 auto;
-    display: flex;
-    flex-direction: column;
+.content-wrap {
+    flex: 1;
 }
 
 
@@ -28,16 +25,19 @@ main {
     max-width: 1100px;
     margin: auto;
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 .logo { 
-    color: white; 
+     color: white; 
     text-decoration: none; 
     font-size: 26px; 
-    font-weight: 800; 
+    font-weight: 800;  
+    margin-right: auto;
 }
 .lost{
     color:rgb(255, 106, 0);
+    text-align:left;
 }
 
 .links a { 
@@ -46,16 +46,37 @@ main {
     margin-left: 30px; 
     font-weight: 600; 
     font-size: 16px; 
+    position: relative;
 }
 
 .hero-box {
     text-align: center;
-    padding: 240px 20px;
-    background: rgb(232, 228, 228);
+    padding: 340px;
+    background: rgb(233, 230, 230);
 }
 .hero-box h1 { 
     font-size: 3.5rem; 
     margin-bottom: 15px; 
+}
+
+/* Mobile hero adjustments */
+@media (max-width: 768px) {
+    .hero-box {
+        padding: 60px 20px;
+    }
+    .hero-box h1 {
+        font-size: 2rem;
+    }
+    .hero-box p {
+        font-size: 1rem;
+    }
+    .hero-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .hero-actions button {
+        width: 100%;
+    }
 }
 .hero-actions { 
     display: flex; 
@@ -66,19 +87,32 @@ main {
 
 .how-it-works {
     padding: 100px 40px;
-    background-color: #F1F5F9;
+    background-color: #e7e9eb;
     text-align: center;
 }
 .steps-grid {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
     max-width: 1000px;
     margin: 60px auto 0;
-    gap: 40px;
-    padding:20px;
+}
+
+/* tablets */
+@media (max-width: 900px) {
+    .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* mobile */
+@media (max-width: 600px) {
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
 }
 .step-card {
     flex: 1;
-    height:300px;
     background: white;
     padding: 50px 30px;
     margin:30px;
@@ -188,7 +222,7 @@ input, textarea {
 }
 
 .btn-2:hover{
-background-color: rgb(22, 20, 166);         
+    background-color: rgb(22, 20, 166);         
   transform: scale(1.05);
   transition: background-color 0.3s ease, 
   color 0.3s ease, 
@@ -211,15 +245,23 @@ background-color: rgb(22, 20, 166);
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 10px;
-    padding: 16px;
+    padding: 6px;
     display: flex;
     align-items: center;
     gap: 16px;
+    font-size:18px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
 .lost-item:hover {
     transform: translateY(-10px);
+}
+.lost-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: #f3f3f3;
 }
 .item-info h4 {
     margin-bottom: 4px;
@@ -343,7 +385,7 @@ footer {
     background-color: rgb(18,18,59);
     color: white;
     padding: 40px 20px;
-    flex-shrink: 0;  /* makes footer not shrink on short pages */
+
 }
 
 .main-footer {
@@ -391,10 +433,11 @@ footer {
     font-size: 14px;
 }
 
+/* Mobile Responsive */
 @media (max-width: 768px) {
     .footer-top {
         flex-direction: column;
-        /* align-items: flex-start; */
+        align-items: flex-start;
     }
     .footer-logo {
         font-size: 24px;
@@ -402,7 +445,7 @@ footer {
 }
 
 
-.admin-grid {
+.admin-grid{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
@@ -412,35 +455,4 @@ footer {
     .admin-grid {
         grid-template-columns: 1fr;
     }
-}
-
-
-.lost-items-grid {
-    min-height: 300px; /* prevents footer jump */
-}
-
-.page-view, .form-page {
-    min-height: 60vh;
-}
-.admin-stats {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    margin-bottom: 30px;
-}
-
-.stat-box {
-    background: #f1f5f9;
-    padding: 20px 30px;
-    border-radius: 12px;
-    text-align: center;
-    font-size: 1rem;
-    font-weight: 600;
-    color: rgb(18,18,59);
-}
-
-.stat-box strong {
-    font-size: 1.8rem;
-    display: block;
-    margin-top: 6px;
 }
